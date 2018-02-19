@@ -1,10 +1,5 @@
 import 'jquery';
 import 'popper.js';
 import 'bootstrap';// import the bootstrap js
-//import './assets/js/common.js';
+import './common.js';
 
-// require jQuery normally
-const $ = require('jquery');
-
-// create global $ and jQuery variables
-global.$ = global.jQuery = $;
