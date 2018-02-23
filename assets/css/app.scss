@@ -1,3 +1,4 @@
-@import '~bootstrap/scss/bootstrap.scss';
-@import "main";
-
+@import '~bootstrap/scss/bootstrap';
+@import '_base';
+@import '_admin';
+@import '_variables';

@@ -29,6 +29,7 @@
         "bloodhound-js": "^1.2.2",
         "bootstrap": "^4.0.0",
         "font-awesome": "^4.7.0",
+        "glyphicons": "^0.2.0",
         "imports-loader": "^0.7.1",
         "popper.js": "^1.12.9"
     },

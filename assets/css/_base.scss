@@ -1,0 +1,137 @@
+
+body {
+  margin: 0;
+  padding: 0;
+
+    h1 {
+      color: darkred;
+      text-transform: uppercase;
+    }
+
+    .container-fluid {
+    padding: 0;
+    }
+}
+
+/* ==========================================================
+        Banner style + logo (test)
+   ========================================================== */
+/*.logo {
+  position: relative;
+  !*padding-left: 20px;
+  padding-top: 20px;*!
+  z-index: 2500;
+  max-width: 100%;
+  max-height: 100%;
+  //width: 100px;
+  //height: 100px;
+}
+
+.banner {
+  position: fixed;
+  z-index: -1;
+}*/
+
+
+/* ==========================================================
+        Header / Navbar Styles
+   ========================================================== */
+.navbar {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  background: #333;
+  color: #333;
+  //color: $blue-green;
+  transition: all 0.3s;
+  text-transform: uppercase;
+}
+.navbar a {
+  color: #fff !important;
+}
+
+.navbar button {
+  color: inherit !important;
+}
+
+.navbar.compressed {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: #6dcc7c;
+  color: #6dcc7c;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+
+/*-------- Navbar toggler customisation -------*/
+.custom-toggler.navbar-toggler {
+  border-color: rgb(218, 218, 218);
+}
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(218,218,218, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+/* ==========================================================
+        Footer Styles
+   ========================================================== */
+footer {
+  background-color: rgba(44, 62, 80, 1.0);
+
+  width: 100%;
+  bottom: 0;
+  font-weight: lighter;
+  color: white;
+}
+.footerHeader{
+  width:100%;
+  padding:1em;
+  background-color:rgba(52, 73, 94,1.0);
+  text-align:center;
+  color:white;
+}
+footer h3{
+  font-weight:lighter;
+}
+footer ul{
+  padding-left:5px;
+  list-style:none;
+}
+footer p{
+  text-align : justify;
+  font-size : 12px;
+}
+footer iframe {
+  width:100%;
+  position:relative;
+  height:250px;
+}
+.sm {
+  list-style: none;
+  overflow: auto;
+  li {
+    display: inline;
+    padding: 5px;
+    float: left;
+  }
+  li a img {
+    width: 32px;
+  }
+}
+.footerHeader {
+  .footerCredits {
+    a#jb
+    {
+      text-indent: -9999px;
+      display: inline-block;
+      width:57px;
+      height:18px;
+      background: url(/public/img/jb.png) no-repeat center top;
+      transition:background-position 150ms;
+    }
+
+    a#jb:hover
+    {
+      background: url(/public/img/jb.png) no-repeat center bottom;
+    }
+
+  }
+}
