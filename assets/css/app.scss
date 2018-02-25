@@ -1,4 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
-@import '_base';
-@import '_admin';
-@import '_variables';
+@import 'variables';
+@import 'mixins';
+@import 'base';
+@import 'admin';
+@import 'homepage';
