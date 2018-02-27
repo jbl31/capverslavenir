@@ -38,3 +38,7 @@ Still stuck on different things..
 
 Time to go into generating Entities + database
 
+## R1D7
+
+Modified a bit the CSS + created Post entity using doctrine.
+Started to write my final document in parallel also because its a long way to finish it.
