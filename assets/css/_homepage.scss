@@ -1,3 +1,6 @@
+@import 'variables';
+@import 'mixins';
+@import 'base';
 /* ==========================================================
         Banner style + logo (test)
    ========================================================== */
@@ -127,4 +130,15 @@ footer iframe {
   }
 }
 
-
+/* ==========================================================
+        Articles/news Styles
+   ========================================================== */
+.news {
+  margin-top: 15px;
+  background: $grey-news-bgdarker;
+  border: solid 1px $grey-light;
+  border-radius: 5px;
+    h1{
+      color: dimgrey;
+    }
+}

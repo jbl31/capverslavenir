@@ -18,3 +18,23 @@ Restarted for scratch.
 
 
 ### R1D2
+Created homepage using bootstrap 4 navbar + footer
+
+## R1D3
+
+Playing around and fixing stuff 
+
+## R1D4
+
+Creating a "news" block and trying to figure out how to manage
+the next parts of the project in Symfony... Hard :/
+
+
+## R1D5
+
+Still stuck on different things.. 
+
+## R1D6
+
+Time to go into generating Entities + database
+
