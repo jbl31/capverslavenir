@@ -42,3 +42,7 @@ Time to go into generating Entities + database
 
 Modified a bit the CSS + created Post entity using doctrine.
 Started to write my final document in parallel also because its a long way to finish it.
+
+## R1D8
+
+Played  with entities (generated them), created the database, played with the symfony documentation, as always :)
