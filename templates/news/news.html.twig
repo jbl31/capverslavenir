@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+
+    {% block body_news %}
+        <h1>Post</h1>
+        {% for post in posts %}
+            <div>{{ post.title }}</div>
+        {% endfor %}
+        <div>Total : {{ posts|length }}</div>
+    {% endblock %}
+
+
+
+
+
