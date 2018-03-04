@@ -42,23 +42,15 @@ class Post
      */
     private $content;
 
-//    /**
-//     *
-//     * @ORM\Column(type="datetime")
-//     *
-//     */
-//    private $publishedAt;
+    /**
+    ** @ORM\Column(type="datetime")
+    **/
+    private $publishedAt;
 
     /**
      *
      */
     private $author;
-
-    /**
-     *
-     *
-     */
-    private $comments;
 
     /**
      *

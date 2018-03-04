@@ -21,6 +21,6 @@ class DefaultController extends Controller
      */
     public function index(Request $request): Response
     {
-        return $this->render('homepage/home.html.twig');
+        return $this->render('default/homepage.html.twig');
     }
 }

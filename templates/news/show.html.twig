@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+
+    {% block body_news %}
+        <h1>{{ post.title }}</h1>
+        <div>{{ post.summary }}</div>
+        <div>{{ post.content }}</div>
+        <div>Commentaires :</div>
+        {% for comment in post.comments %}
+            <div>
+                {{ comment.author.lastname ~ ' ' ~  comment.author.firstname }}
+            </div>
+        {% endfor %}
+    {% endblock %}

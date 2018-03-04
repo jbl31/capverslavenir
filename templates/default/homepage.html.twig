@@ -98,6 +98,8 @@
 
         </div>
     </div>
+    {% block body_news %}
+
     {% for post in posts %}
         <article class="post">
             <h2>
@@ -118,7 +120,7 @@
     {% else %}
         <div class="well">{{ 'post.no_posts_found'|trans }}</div>
     {% endfor %}
-
+    {% endblock %}
 
 
 
