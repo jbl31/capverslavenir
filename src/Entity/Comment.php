@@ -17,11 +17,12 @@ class Comment
     private $id;
 
     /**
-     * @ORM\Column(name="content", type="integer")
+     * @ORM\Column(name="content", type="text")
      */
     private $content;
 
     /**
+     * @var
      * @ORM\ManyToOne(targetEntity="Post")
      * @ORM\JoinColumn(name="id", referencedColumnName="id")
      */
@@ -29,9 +30,8 @@ class Comment
 
 
     /**
-     * @OneToMany(targetEntity="User", mappedBy="comments")
+     * @ORM\OneToMany(targetEntity="User", mappedBy="comments")
      */
-
     private $author;
     /**
      * @return mixed

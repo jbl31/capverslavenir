@@ -98,12 +98,12 @@
 
         </div>
     </div>
-    {% block body_news %}
+    {% block bodynews %}
 
     {% for post in posts %}
         <article class="post">
             <h2>
-                <a href="{{ path('post', {slug: post.slug}) }}">
+                <a href="{{ path('/post', {slug: post.slug}) }}">
                     {{ post.title }}
                 </a>
             </h2>

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Post;
 use Doctrine\ORM\Tools\Pagination\Paginator;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,6 +21,7 @@ class PostController extends Controller
     }
     /**
      * @Route("/post/{id}", name="post_show")
+     * @Method("GET")
      */
     public function show($id)
     {
@@ -33,8 +35,8 @@ class PostController extends Controller
             );
         }
         return $this
-            ->render('news/show.html.twig', array(
-                'post' => $post)
+            ->render('news/show.html.twig', [
+                'post' => $post]
             );
     }
 

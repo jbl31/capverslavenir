@@ -1,14 +1,42 @@
 {% extends 'base.html.twig' %}
 
 
-    {% block body_news %}
+    {% block bodynews %}
+
+        {% for post in posts %}
         <h1>{{ post.title }}</h1>
         <div>{{ post.summary }}</div>
         <div>{{ post.content }}</div>
         <div>Commentaires :</div>
-        {% for comment in post.comments %}
+            {% endfor %}
+        {#{% for comment in post.comments %}
             <div>
                 {{ comment.author.lastname ~ ' ' ~  comment.author.firstname }}
             </div>
-        {% endfor %}
+        {% endfor %}#}
+
+
+       {# <div class="post-preview">
+            <a href="{{ path("page.post", {id: post.id}) }}">
+                <h2 class="post-title">
+                    {{ post.title }}
+                </h2>
+                <h3 class="post-subtitle">
+                    {{ post.subTitle }}
+                </h3>
+            </a>
+
+            <p class="post-meta">
+                Category: <a href="{{ path("page.post.category", {id: post.category.id}) }}">{{ post.category.label }}</a>
+                <br />
+                Posted by
+                <a href="#">{{ post.author }}</a>
+                on {{ post.date|date("d/m/Y G:i:s") }}
+            </p>
+        </div>#}
+
+
+        {% if not loop.last %}
+            <hr>
+        {% endif %}
     {% endblock %}

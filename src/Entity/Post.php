@@ -43,8 +43,8 @@ class Post
     private $content;
 
     /**
-    ** @ORM\Column(type="datetime")
-    **/
+     * @ORM\Column(type="datetime")
+     */
     private $publishedAt;
 
     /**
@@ -169,21 +169,6 @@ class Post
         $this->author = $author;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getComments()
-    {
-        return $this->comments;
-    }
-
-    /**
-     * @param mixed $comments
-     */
-    public function setComments($comments): void
-    {
-        $this->comments = $comments;
-    }
 
     /**
      * @return mixed
