@@ -52,7 +52,7 @@
                             </li>
                             <li class="nav-item">
                                 <button class="btn btn-warning" type="button">
-                                    <a class="nav-link " href="#">Je deviens adhérent</a>
+                                    <a class="nav-link " href="#">Nous soutenir</a>
                                 </button>
                             </li>
                         </ul>
@@ -60,7 +60,8 @@
                 </div>
             </nav>
         </header>
-        {% block main %}
+
+        {% block body %}
         {% endblock %}
 
         <footer>
@@ -109,9 +110,6 @@
                    onclick="window.open(this.href); return false;">Jean-Baptiste Leoty</a>
             </div>
         </footer>
-
-
-        {% block body %}{% endblock %}
         <script src="{{ asset('build/js/app.js') }}"></script>
         {% block javascripts %}
         {% endblock %}
