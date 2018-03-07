@@ -1,0 +1,30 @@
+@import 'variables';
+@import 'mixins';
+@import 'base';
+
+/* ==========================================================
+                News posts style
+   ========================================================== */
+
+.news {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 25px;
+  background: $grey-news-bgdarker;
+  border: solid 1px $grey-light;
+  border-radius: 7px;
+  h1{
+    color: dimgrey;
+  }
+  -webkit-box-shadow: 4px 3px 15px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 4px 3px 15px -5px rgba(0,0,0,0.75);
+  box-shadow: 4px 3px 15px -5px rgba(0,0,0,0.75);
+  .badge-light{
+    font-style: italic;
+    color: $grey-mid;
+  }
+}
+
+hr {
+  padding: 10px;
+}

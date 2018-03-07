@@ -56,7 +56,7 @@ class PostController extends Controller
     }
 
     /**
-     * @Route("/{page}", name="news", requirements={"page": "\d+"})
+     * @Route("/posts/{page}", name="news", requirements={"page": "\d+"})
      * @param $page
      * @return \Symfony\Component\HttpFoundation\Response
      */

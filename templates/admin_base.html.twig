@@ -15,32 +15,37 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav side-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home
+                    <a class="nav-link" href="#"> &#9776 Actualités
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Side Menu Items</a>
+                    <a class="nav-link" href="#">Evenements</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
+                    <a class="nav-link" href="#">Utilisateurs</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-md-auto d-md-flex">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home
+                    <a class="nav-link" href="#">Accéder au site
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Top Menu Items</a>
+                    <a class="nav-link" href="#">Profil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
+                    <a class="nav-link" href="#">Déconnection</a>
                 </li>
             </ul>
         </div>
     </nav>
+    {% block body %}
+
+    {% endblock %}
+
+
     <div class="container-fluid">
         <div class="row">
             <div class="col">
@@ -121,9 +126,9 @@
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
+                                <th scope="col">Titre</th>
+                                <th scope="col">Date de publication</th>
+                                <th scope="col">Actions</th>
                             </tr>
                             </thead>
                             <tbody>

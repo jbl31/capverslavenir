@@ -98,33 +98,5 @@
 
         </div>
     </div>
-    {% block body %}
-
-    {% for post in posts %}
-        <article class="post">
-            <h2>
-                <a href="{{ path('post', {slug: post.slug}) }}">
-                    {{ post.title }}
-                </a>
-            </h2>
-
-            <p class="post-metadata">
-                <span class="metadata"><i class="fa fa-calendar"></i> {{ post.publishedAt }}</span>
-                <span class="metadata"><i class="fa fa-user"></i> {{ post.author.fullName }}</span>
-            </p>
-
-            {{ post.summary }}
-
-            {{ include('blog/_post_tags.html.twig') }}
-        </article>
-    {% else %}
-        <div class="well">{{ 'post.no_posts_found'|trans }}</div>
-    {% endfor %}
-    {% endblock %}
-
-
-
-
-
 
 {% endblock %}

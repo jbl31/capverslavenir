@@ -46,3 +46,7 @@ Started to write my final document in parallel also because its a long way to fi
 ## R1D8
 
 Played  with entities (generated them), created the database, played with the symfony documentation, as always :)
+
+## R1D9 D10 D11 D12 D13 D14
+Fixing differents stuffs and adding routes to /admin, got posts listing working
+Next thing to do: Login/register forms + security + css fixing

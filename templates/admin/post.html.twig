@@ -1,0 +1,85 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block body %}
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Liste des actualités</h2>
+                    <a class="btn btn-success float-right" role="button" href="{{ path('admin_post_new')}}">Nouvelle actualité</a>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Titre de l'article</th>
+                                <th scope="col">Date de publication</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for post in posts %}
+                            <tr>
+                                <td>{{ post.id }}</td>
+                                <td>{{ post.title }}</td>
+                                <td>{{ post.publishedAt | date('d-m-Y H:i:s') }}</td>
+                                <td class="text-right">
+                                    <div class="item-actions">
+                                        <a href="#" class="btn btn-sm btn-secondary">
+                                            <i class="fas fa-eye" aria-hidden="true"></i> Voir
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-primary">
+                                            <i class="fas fa-edit" aria-hidden="true"></i> Editer
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-danger">
+                                            <i class="fas fa-trash-alt" aria-hidden="true"></i> Supprimer
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{#<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Titre</th>
+        <th>Date de publication</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for post in posts %}
+        <tr>
+            <td>{{ post.id }}</td>
+            <td>{{ post.title }}</td>
+            <td>{{ post.publishedAt | date('d-m-Y H:i:s') }}</td>
+            <td class="text-right">
+                <div class="item-actions">
+                    <a href="#" class="btn btn-sm btn-secondary">
+                        <i class="fas fa-eye" aria-hidden="true"></i> Voir
+                    </a>
+                    <a href="#" class="btn btn-sm btn-primary">
+                        <i class="fas fa-edit" aria-hidden="true"></i> Editer
+                    </a>
+                    <a href="#" class="btn btn-sm btn-danger">
+                        <i class="fas fa-trash-alt" aria-hidden="true"></i> Supprimer
+                    </a>
+                </div>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="4" align="center"></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>#}

@@ -34,7 +34,7 @@
                     <!-- Navbar Collapse [collect navbar components such as navbar links and forms ] -->
                     <div class="collapse navbar-collapse" id="navbarMenu">
                         <!-- Navbar Links -->
-                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <ul class="navbar-nav justify-content-end mr-auto mt-2 mt-lg-0">
                             <li class="nav-item active">
                                 <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
                             </li>
@@ -63,7 +63,8 @@
 
         {% block body %}
         {% endblock %}
-
+        {% block main %}
+        {% endblock %}
         <footer>
             <div class="footerHeader" ></div>
                 <div class="container">
@@ -105,9 +106,15 @@
                     </div>
                 </div>
             <div class="footerCredits" >
-                Realisation -
-                <a id="jb" href="http://www.jeanbaptisteleoty.fr"
-                   onclick="window.open(this.href); return false;">Jean-Baptiste Leoty</a>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col justify-content-center">
+                        Realisation -
+                        <a id="jb" href="http://www.jeanbaptisteleoty.fr"
+                           onclick="window.open(this.href); return false;">Jean-Baptiste Leoty</a>
+                    </div>
+                    <div class="col"></div>
+                </div>
             </div>
         </footer>
         <script src="{{ asset('build/js/app.js') }}"></script>
