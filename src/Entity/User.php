@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\User as Baseuser;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -13,7 +14,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @UniqueEntity(fields="username", message="Username already taken")
  * @ORM\Table(name="user")
  */
-class User implements UserInterface, \Serializable
+class User
+    //implements UserInterface, \Serializable
 {
     /**
      * @var int
@@ -53,7 +55,7 @@ class User implements UserInterface, \Serializable
     /**
      * @var array
      *
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="array")
      */
     private $roles = [];
 

@@ -74,7 +74,7 @@ class AppFixtures extends Fixture
         $manager->flush();
     }
 
-   /* private function loadTags(ObjectManager $manager)
+    private function loadTags(ObjectManager $manager)
     {
         foreach ($this->getTagData() as $index => $name) {
             $tag = new Tag();
@@ -85,7 +85,7 @@ class AppFixtures extends Fixture
         }
 
         $manager->flush();
-    }*/
+    }
 
     private function loadPosts(ObjectManager $manager)
     {

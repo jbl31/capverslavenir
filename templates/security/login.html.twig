@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('build/css/my-login.css') }}">
+{% endblock %}
+
+{%  block body %}
+    <body class="my-login-page">
+    <section class="h-100">
+        <div class="container h-100">
+            <div class="row justify-content-md-center h-100">
+                <div class="card-wrapper">
+                    <div class="brand">
+                        <img src="{{ asset('img/Logo.png') }}">
+                    </div>
+                    <div class="card fat">
+                        <div class="card-body">
+                            <h4 class="card-title">Login</h4>
+                            <form method="POST">
+
+                                <div class="form-group">
+                                    <label for="email">Adresse Email</label>
+
+                                    <input id="email" type="email" class="form-control" name="email" value="" required autofocus>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password">Mot de passe
+                                        <a href="#" class="float-right">
+                                            Forgot Password?
+                                        </a>
+                                    </label>
+                                    <input id="password" type="password" class="form-control" name="password" required data-eye>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>
+                                        <input type="checkbox" name="remember"> Se rappeller de moi
+                                    </label>
+                                </div>
+
+                                <div class="form-group no-margin">
+                                    <button type="submit" class="btn btn-primary btn-block">
+                                        Connexion
+                                    </button>
+                                </div>
+                                <div class="margin-top20 text-center">
+                                    Vous n'avez pas de compte? <a href="#">Créer un compte</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="{{ asset('build/js/my-login.js') }}"></script>
+    </body>
+
+{% endblock %}
