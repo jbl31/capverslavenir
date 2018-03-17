@@ -14,8 +14,7 @@ use Symfony\Component\Security\Core\User as Baseuser;
  * @UniqueEntity(fields="username", message="Username already taken")
  * @ORM\Table(name="user")
  */
-class User
-    //implements UserInterface, \Serializable
+class User implements UserInterface, \Serializable
 {
     /**
      * @var int
@@ -28,7 +27,7 @@ class User
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(type="string")
      */
     private $fullName;

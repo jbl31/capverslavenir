@@ -10,6 +10,7 @@ namespace App\Controller;
 
 use App\Entity\Post;
 use App\Form\PostType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,8 +20,9 @@ class AdminController extends Controller
 {
     /**
      * @Route("/admin/news", name="admin_news")
+     *
      */
-    public function index(Request $request): Response
+    public function indexAction(Request $request): Response
     {
         $posts = $this
             ->getDoctrine()
@@ -34,12 +36,18 @@ class AdminController extends Controller
         );
     }
 
+    public function index()
+    {
+        return $this->render('');
+    }
+
     public function postShow(){
 
     }
 
     /**
      * @Route("/admin/post/new", name="admin_post_new")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function newPost(Request $request)
     {

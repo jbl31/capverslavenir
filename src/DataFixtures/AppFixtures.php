@@ -12,6 +12,7 @@ use App\Entity\Post;
 use App\Entity\Tag;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\BadMethodCallException;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\Comment;
 use App\Utils\Slugger;
@@ -68,7 +69,10 @@ class AppFixtures extends Fixture
             $user->setRoles($roles);
 
             $manager->persist($user);
-            $this->addReference($username, $user);
+            try {
+                $this->addReference($username, $user);
+            } catch (BadMethodCallException $e) {
+            }
         }
 
         $manager->flush();

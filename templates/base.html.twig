@@ -36,13 +36,13 @@
                         <!-- Navbar Links -->
                         <ul class="navbar-nav justify-content-end mr-auto mt-2 mt-lg-0">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="{{ path('homepage') }}">Accueil <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">L'association</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link " href="#">Actualités</a>
+                                <a class="nav-link " href="{{ path('page_news') }}">Actualités</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link " href="#">Evènements</a>
@@ -63,6 +63,7 @@
 
         {% block body %}
         {% endblock %}
+
         {% block main %}
         {% endblock %}
         <footer>

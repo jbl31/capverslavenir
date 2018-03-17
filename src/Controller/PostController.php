@@ -13,7 +13,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class PostController extends Controller
 {
     /**
-     * @Route("/post/create", name="page_posts")
+     * @Route("/post/create", name="post_create")
      */
     public function create(Request $request)
     {
@@ -28,7 +28,7 @@ class PostController extends Controller
             $em->persist($post);
             $em->flush();
 
-            return $this->redirectToRoute('news', ['page' => 1]);
+            return $this->redirectToRoute('page_news', ['page' => 1]);
         }
 
         return $this->render('news/create.html.twig', ['form' => $form->createView()]);
@@ -56,7 +56,7 @@ class PostController extends Controller
     }
 
     /**
-     * @Route("/posts/{page}", name="news", requirements={"page": "\d+"})
+     * @Route("/news/{page}", name="page_news", requirements={"page": "\d+"})
      * @param $page
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -67,15 +67,15 @@ class PostController extends Controller
         }
         $nbPerPage = 5;
         $posts = $this
-            ->getDoctrine()
-            ->getRepository(Post::class)
-            ->getPosts([
-                'first' => $page,
-                'limit' => $nbPerPage]);
+            ->getDoctrine()  // appelle doctrine
+            ->getRepository(Post::class)  // appelle notre repository
+            ->getPosts([  // appelle la liste des posts via la méthode dans le repository
+                'first' => $page,   // les classe par page
+                'limit' => $nbPerPage]); // et limite leur nombre par page à la valeur indiqué dans $nbPerPages,
         $nbPages = ceil(count($posts) / $nbPerPage);
         return $this
-            ->render('news/news.html.twig', [
-            'posts' => $posts,
+            ->render('news/news.html.twig', [   // Rendu de la page news
+            'posts' => $posts,  // affecte la valeur de $posts à 'posts' pour les utiliser dans twig
             'nbPages' => $nbPages,
             'page' => $page,
         ]);

@@ -10,3 +10,44 @@ body {
     }
 }
 
+.wrapper{
+  display:flex;
+}
+
+aside {
+  width:30%;
+  padding: 20px;
+  padding-left: 0;
+  display: inline-block;
+  height: 550px;
+  .card{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  }
+}
+
+@media all and (max-width:576px) {
+  .bodynews {
+    width: 100%;
+  }
+  .wrapper {
+    flex-flow: column;
+  }
+  .wrapper > aside{
+    order:1;
+    width:auto;
+    height: auto;
+  }
+  .wrapper > .bodynews{
+    order:2;
+    width:auto;
+  }
+
+}
+.bodynews {
+  width: 68%;
+  margin-left:20px;
+  margin-right:20px;
+  display: inline-block;
+}

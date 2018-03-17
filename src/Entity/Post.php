@@ -58,7 +58,7 @@ class Post
     /**
      * @var User
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="post")
      * @ORM\JoinColumn(nullable=false)
      */
     private $author;
@@ -93,7 +93,7 @@ class Post
 
     /**
      * @ORM\Column(type="string")
-     * @ORM\OneToOne(targetEntity="App\Entity\PostCategory", inversedBy="posts")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="posts")
      */
     private $category;
 

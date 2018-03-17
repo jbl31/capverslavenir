@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\PostCategory;
+use App\Entity\Category;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -10,7 +10,7 @@ class PostCategoryRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, PostCategory::class);
+        parent::__construct($registry, Category::class);
     }
 
     /*

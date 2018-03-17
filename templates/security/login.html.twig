@@ -1,11 +1,46 @@
 {% extends 'base.html.twig' %}
 
-{% block stylesheets %}
+{#{% block stylesheets %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('build/css/my-login.css') }}">
-{% endblock %}
+{% endblock %}#}
 
-{%  block body %}
+
+{% block body %}
+    {% if error %}
+        <div class="alert alert-danger">
+            {{ error.messageKey }}
+        </div>
+    {% endif %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5">
+            <div class="well">
+                <form action="{{ path('security_login') }}" method="post">
+                    <fieldset>
+                        <legend><i class="fa fa-lock" aria-hidden="true"></i> Connexion</legend>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="_username" value="{{ last_username }}" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Mot de passe</label>
+                            <input type="password" id="password" name="_password" class="form-control" />
+                        </div>
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-sign-in" aria-hidden="true"></i> Connexion
+                        </button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+    {% endblock %}
+
+{#{%  block body %}
     <body class="my-login-page">
     <section class="h-100">
         <div class="container h-100">
@@ -17,7 +52,7 @@
                     <div class="card fat">
                         <div class="card-body">
                             <h4 class="card-title">Login</h4>
-                            <form method="POST">
+                            <form action="{{ path('security_login') }}" method="POST">
 
                                 <div class="form-group">
                                     <label for="email">Adresse Email</label>
@@ -28,11 +63,12 @@
                                 <div class="form-group">
                                     <label for="password">Mot de passe
                                         <a href="#" class="float-right">
-                                            Forgot Password?
+                                            Mot de passe oublié?
                                         </a>
                                     </label>
                                     <input id="password" type="password" class="form-control" name="password" required data-eye>
                                 </div>
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
 
                                 <div class="form-group">
                                     <label>
@@ -59,4 +95,4 @@
     <script src="{{ asset('build/js/my-login.js') }}"></script>
     </body>
 
-{% endblock %}
+{% endblock %}#}

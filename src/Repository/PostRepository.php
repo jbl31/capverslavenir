@@ -45,11 +45,11 @@ class PostRepository extends ServiceEntityRepository
         // je lancer le querybuilder pour récupérer les posts
         $qb = $this->createQueryBuilder('post');
         $qb
-            ->select('post') // Je sélectionne les posts et les commentaires
-            ->setFirstResult($params['first'])
+            ->select('post') // Je sélectionne les posts
+            ->setFirstResult($params['first']) // Ensemble de pagination créé des objest post entre first et limite
             ->setMaxResults($params['limit']);
-        $pag = new Paginator($qb);  // je démarre mon paginator
-        return $pag;  // je renvoie la page
+        $pag = new Paginator($qb);
+        return $pag;
     }
 
 }

@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PostCategoryRepository")
  */
-class PostCategory
+class Category
 {
     /**
      * @ORM\Id
@@ -30,6 +30,12 @@ class PostCategory
      * @ORM\OneToMany(targetEntity="App\Entity\Post", mappedBy="category")
      */
     private $posts;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Event", mappedBy="category")
+     */
+    private $events;
+
 
     /**
      * @return mixed
@@ -77,6 +83,22 @@ class PostCategory
     public function setPosts($posts): void
     {
         $this->posts = $posts;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEvents()
+    {
+        return $this->events;
+    }
+
+    /**
+     * @param mixed $events
+     */
+    public function setEvents($events): void
+    {
+        $this->events = $events;
     }
 
 
