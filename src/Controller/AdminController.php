@@ -36,9 +36,13 @@ class AdminController extends Controller
         );
     }
 
+    /**
+     * @Route("/admin", name="admin_index")
+     * @Security("has_role('ROLE_ADMIN')")
+     */
     public function index()
     {
-        return $this->render('');
+        return $this->render('admin/index.html.twig');
     }
 
     public function postShow(){
