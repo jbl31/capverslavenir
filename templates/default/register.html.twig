@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
 
+{#{% block body %}
 {{ form_start(form) }}
     {{ form_row(form.fullName) }}
     {{ form_row(form.username) }}
@@ -10,3 +11,71 @@
 
 <button type="submit">S'inscrire !</button>
 {{ form_end(form) }}
+
+{% endblock %}#}
+
+{% block body %}
+<body class="my-login-page">
+<section class="h-100">
+    <div class="container h-100">
+        <div class="row justify-content-md-center h-100">
+            <div class="card-wrapper">
+                <div class="brand">
+                    <img src="{{ asset('img/Logo.png') }}">
+                </div>
+                <div class="card fat">
+                    <div class="card-body">
+                        <h4 class="card-title">Créer un compte utilisateur</h4>
+
+                        {{ form_start(form) }}
+                            <div class="form-group">
+
+                                {{ form_row(form.fullName) }}
+                            </div>
+
+                            <div class="form-group">
+
+                                {{ form_row(form.username) }}
+                            </div>
+
+                            <div class="form-group">
+
+                                {{ form_row(form.email) }}
+                            </div>
+
+                            <div class="form-group">
+                                {{ form_row(form.password.first) }}
+                            </div>
+
+                            <div class="form-group">
+
+                                {{ form_row(form.password.second) }}
+                            </div>
+
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="aggree" value="1"> Je suis d'accord avec les Termes et Conditions
+                                </label>
+                            </div>
+
+                            <div class="form-group no-margin">
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    S'enregistrer
+                                </button>
+                            </div>
+                            <div class="margin-top20 text-center">
+                                J'ai déjà un compte <a href="{{ path('security_login') }}">Connexion</a>
+                            </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="js/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="{{ asset('build/js/my-login.js') }}"></script>
+</body>
+{% endblock %}

@@ -6,7 +6,8 @@
 
     {% block body %}
         {% for post in posts %}
-            <div class="container news">
+            <div class="wrapper">
+            <div class="container news bodynews">
                 <div class="row">
                     <div class="col-12">
                         <div class="row">
@@ -14,13 +15,15 @@
                                 <h1>{{ post.title }}</h1>
                             </div>
                         </div>
-                        <span class="badge-light">Posté par Admin le 24/02/2018</span>
+                        <span class="badge-light">Posté par Admin {#{{ post.author }}#} le {#{{ post.publishedAt }}#}</span>
                         <hr>
                         <div>{{ post.summary }}</div>
                         <a class="btn btn-info float-right" role="button" href="{{ path('post_show', {'id' : post.id})}}">Lire la suite..</a>
                     </div>
                 </div>
             </div>
+            </div>
         {% endfor %}
         <div>Total : {{ posts|length }}</div>
     {% endblock %}
+

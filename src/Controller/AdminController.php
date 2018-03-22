@@ -10,6 +10,7 @@ namespace App\Controller;
 
 use App\Entity\Post;
 use App\Form\PostType;
+use App\Utils\Slugger;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -57,14 +58,24 @@ class AdminController extends Controller
     {
         // Formulaire création de post
         $post = new Post();
+        $post->setAuthor($this->getUser());
         $form = $this->createForm(PostType::class, $post);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $post = $form->getData();
             $em = $this->getDoctrine()->getManager();
+            $post->setSlug(Slugger::slugify($post->getTitle()));
             $post->setPublishedAt(new \DateTime('now'));
+            $post->setImage('image');
+            $post->setCategory('Vie de l\'association');
             $em->persist($post);
             $em->flush();
+
+            $this->addFlash(
+                'success',
+                sprintf('Actualité bien enregistrée !')
+            );
 
             return $this->redirectToRoute('admin_news', ['page' => 1]);
         }

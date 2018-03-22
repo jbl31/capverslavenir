@@ -1,165 +1,190 @@
-
-{% block stylesheets %}
-    {#{{ parent() }}#}
-    <link rel="stylesheet" href="{{ asset('build/css/app.css') }}">
-{% endblock %}
-
-{% block admin_id %}
-<div id="wrapper">
-    <nav class="navbar header-top fixed-top navbar-expand-lg  navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">ADMINISTRATION</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav side-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('admin_news') }}"> &#9776 Actualités
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Evenements</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Utilisateurs</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-md-auto d-md-flex">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('homepage') }}">Accéder au site
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Profil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('security_logout') }}">Déconnection</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    {% block body %}
-
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% block stylesheets %}
+        {#{{ parent() }}#}
+        <link rel="stylesheet" href="{{ asset('build/css/app.css') }}">
     {% endblock %}
+    {#{% block javascripts %}
+        <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+        <script>tinymce.init({ selector:'textarea' });</script>
+        {% endblock %}#}
+    <title>Administration</title>
+</head>
+<body>
+    {% block admin_id %}
+    <div id="wrapper">
+        <nav class="navbar header-top fixed-top navbar-expand-lg  navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">ADMINISTRATION</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav side-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('admin_news') }}"> &#9776 Actualités
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Evenements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Utilisateurs</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-md-auto d-md-flex">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('homepage') }}">Accéder au site
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Profil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('security_logout') }}">Déconnection</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        {% block body %}
+
+        {% endblock %}
 
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Try Other</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Test</h6>
-                        <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below link to view all Bootstrap Menu versions.</p>
-                        <a href="#" class="card-link">link</a>
-                        <a href="#" class="card-link">Another link</a>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Try Other</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Test</h6>
+                            <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below link to view all Bootstrap Menu versions.</p>
+                            <a href="#" class="card-link">link</a>
+                            <a href="#" class="card-link">Another link</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Try Other</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Test</h6>
+                            <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below link to view all Bootstrap Menu versions.</p>
+                            <a href="#" class="card-link">link</a>
+                            <a href="#" class="card-link">Another link</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Try Other</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Test</h6>
+                            <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below link to view all Bootstrap Menu versions.</p>
+                            <a href="#" class="card-link">link</a>
+                            <a href="#" class="card-link">Another link</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Try Other</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Test</h6>
+                            <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below link to view all Bootstrap Menu versions.</p>
+                            <a href="#" class="card-link">link</a>
+                            <a href="#" class="card-link">Another link</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Try Other</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Test</h6>
+                            <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below link to view all Bootstrap Menu versions.</p>
+                            <a href="#" class="card-link">link</a>
+                            <a href="#" class="card-link">Another link</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Try Other</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Test</h6>
-                        <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below link to view all Bootstrap Menu versions.</p>
-                        <a href="#" class="card-link">link</a>
-                        <a href="#" class="card-link">Another link</a>
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Try Other</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Test</h6>
+                            <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below link to view all Bootstrap Menu versions.</p>
+                            <a href="#" class="card-link">link</a>
+                            <a href="#" class="card-link">Another link</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Try Other</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Test</h6>
-                        <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below link to view all Bootstrap Menu versions.</p>
-                        <a href="#" class="card-link">link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Try Other</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Test</h6>
-                        <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below link to view all Bootstrap Menu versions.</p>
-                        <a href="#" class="card-link">link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Try Other</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Test</h6>
-                        <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below link to view all Bootstrap Menu versions.</p>
-                        <a href="#" class="card-link">link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Try Other</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Test</h6>
-                        <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below link to view all Bootstrap Menu versions.</p>
-                        <a href="#" class="card-link">link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Titre</th>
-                                <th scope="col">Date de publication</th>
-                                <th scope="col">Actions</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                            </tbody>
-                        </table>
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Titre</th>
+                                    <th scope="col">Date de publication</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-{% endblock %}
+    {% endblock %}
 
-{% block javascripts %}
-{% endblock %}
+    {% block javascripts %}
+        <script src="{{ asset('build/js/tinymce/tinymce.min.js') }}"></script>
+        <script>tinymce.init({
+                selector:'#tinymce',
+                max_height: 500,
+                max_width: 500,
+                min_height: 100,
+                min_width: 400,
+                //add_form_submit_trigger : true
+        });</script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    {% endblock %}
+
+</body>
+</html>

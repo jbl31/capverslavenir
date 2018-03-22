@@ -12,10 +12,10 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class PostController extends Controller
 {
-    /**
-     * @Route("/post/create", name="post_create")
-     */
-    public function create(Request $request)
+ //   /**
+ //    * @Route("/post/create", name="post_create")
+ //    */
+    /*public function create(Request $request)
     {
         // Formulaire création de post
         $post = new Post();
@@ -28,11 +28,11 @@ class PostController extends Controller
             $em->persist($post);
             $em->flush();
 
-            return $this->redirectToRoute('page_news', ['page' => 1]);
+            return $this->redirectToRoute('admin_news', ['page' => 1]);
         }
 
         return $this->render('news/create.html.twig', ['form' => $form->createView()]);
-    }
+    }*/
 
     /**
      * @Route("/post/{id}", name="post_show")

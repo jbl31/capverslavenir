@@ -102,15 +102,19 @@
         </div>
     </div>
 
+</div>
+{% endblock %}
+
+{% block sidebar %}
     <aside>
         <div class="card">
             <h3 class="card-header">Nous suivre</h3>
             <div class="card-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique </p>
                 <hr class="my-3">
                 <a href="{{ path('security_login')}}"> Connexion</a>
+                <a href="{{ path('user_registration') }}">S'enregistrer</a>
             </div>
         </div>
     </aside>
-</div>
 {% endblock %}

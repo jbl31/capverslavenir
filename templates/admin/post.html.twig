@@ -1,7 +1,6 @@
 {% extends 'admin_base.html.twig' %}
 
 {% block body %}
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <div class="row">
         <div class="col">
             <div class="card">
@@ -25,7 +24,7 @@
                                 <td>{{ post.publishedAt | date('d-m-Y H:i:s') }}</td>
                                 <td class="text-right">
                                     <div class="item-actions">
-                                        <a href="#" class="btn btn-sm btn-secondary">
+                                        <a href="{{ path('admin_news', {id:post.id}) }}" class="btn btn-sm btn-secondary">
                                             <i class="fas fa-eye" aria-hidden="true"></i> Voir
                                         </a>
                                         <a href="#" class="btn btn-sm btn-primary">

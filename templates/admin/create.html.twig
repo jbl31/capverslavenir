@@ -2,8 +2,36 @@
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
 
 {% block body %}
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <input class="btn btn-primary" type="Submit" value="Créer"/>
-    {{ form_end(form) }}
+
+<div class="container form-container card-wrapper">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Ecrire une nouvelle actualité</h4>
+           <div class="container justify-content-center">
+
+               {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                           {#{{ form_label(form.title, ) }}#}
+                           {{ form_row(form.title,{'label':'Titre'}) }}
+
+                           {{ form_row(form.summary)}}
+                           {#{{ form_row(form.category)}}#}
+                           {{ form_row(form.content, {'id':'tinymce form-control'}) }}
+
+
+                   {#<button type="submit" class="btn btn-primary">
+                       <i class="fa fa-sign-in" aria-hidden="true"></i> Créer
+                   </button>#}
+                {#{{ form_widget(form) }}#}
+               <div style="display:none">  {{ form_rest(form) }}</div>
+               {{ form_end(form) }}
+           </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 {% endblock %}
+
+
