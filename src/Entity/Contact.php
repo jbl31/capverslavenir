@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ContactRepository")
@@ -32,6 +33,13 @@ private $name;
  * @ORM\Column(name="email", type="string", length=255)
  */
 private $email;
+
+
+/**
+ * @ORM\Column(type="string", length=20)
+ * @Assert\Length(min="10", max="14")
+ */
+private $phone;
 
 /**
  * @var string
@@ -159,5 +167,22 @@ public function getMessage()
 {
     return $this->message;
 }
+
+    /**
+     * @return mixed
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * @param mixed $phone
+     */
+    public function setPhone($phone): void
+    {
+        $this->phone = $phone;
+    }
+
 
 }

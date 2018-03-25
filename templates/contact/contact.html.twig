@@ -1,39 +1,47 @@
+{% extends 'base.html.twig' %}
 {% block body %}
     {% form_theme form 'bootstrap_4_layout.html.twig' %}
 
     <div class="container">
-               <div class="row">
-                       <div class="col-sm-4">
-                               <h2 class=page-header>Contactez-nous</h2>
+        <div class="row">
+            <div class="col-md-3 col-lg-2"></div>
+            <div class="col-12 col-md-8 col-lg-8 card">
+                <div class="card-body">
+                        <h4 class="card-title">Contactez-nous</h4>
+                    <div class="justify-content-center">
 
-                                   {{ form_start(form) }}
-                <div>
-                    {{ form_widget(form.name) }}
-                    {{ form_errors(form.name) }}
-                </div>
-                <div>
-                    {{ form_widget(form.subject) }}
-                    {{ form_errors(form.subject) }}
-                </div>
-                <div>
-                    {{ form_widget(form.email) }}
-                    {{ form_errors(form.email) }}
-                </div>
-                <div>
-                    {{ form_widget(form.message) }}
-                    {{ form_errors(form.message) }}
-                </div>
+                        {{ form_start(form) }}
+                        <div>
+                            {{ form_row(form.name) }}
+                        </div>
+                        <div>
+                            {{ form_row(form.phone) }}
 
-                {# Render CSRF token etc .#}
-                <div style="display:none">
-                    {{ form_rest(form) }}
+                        </div>
+                        <div>
+                            {{ form_row(form.subject) }}
+                        </div>
+                        <div>
+                            {{ form_row(form.email) }}
+                        </div>
+                        <div>
+                            {{ form_row(form.message) }}
+
+                        </div>
+
+                        {# Render CSRF token etc .#}
+                        <div style="display:none">
+                            {{ form_rest(form) }}
+                        </div>
+
+                        <input type="submit" value="Submit" class="btn btn-primary">
+
+                        {{ form_end(form) }}
+                    </div>
                 </div>
-
-                <input type="submit" value="Submit" class="btn btn-primary">
-
-                {{ form_end(form) }}
-                           </div>
-                   </div>
+            </div>
+            <div class="col-md-3 col-lg-2"></div>
+        </div>
     </div>
 
 {% endblock %}

@@ -47,7 +47,8 @@ security:
                 # The name of the route to redirect to after logging out
                 target: homepage
 
-            access_denied_handler: App\Security\AccessDeniedHandler
+            access_denied_handler: access.denied.route
+
 
 
     access_control:

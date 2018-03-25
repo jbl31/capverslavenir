@@ -2,12 +2,13 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
+    mail_sender: "entreprendre31@gmail.com"
 
 services:
     # default configuration for services in *this* file
     _defaults:
-        autowire: true      # Automatically injects dependencies in your services.
-        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        autowire: false      # Automatically injects dependencies in your services.
+        autoconfigure: false # Automatically registers your services as commands, event subscribers, etc.
         public: false       # Allows optimizing the container by removing unused services; this also means
                             # fetching services directly from the container via $container->get() won't work.
                             # The best practice is to be explicit about your dependencies anyway.
@@ -26,6 +27,40 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-    App\Security\AccessDeniedHandler:
-        arguments:
-            $router: '@router'
+    App\Repository\:
+        resource: '../src/Repository'
+        autowire: true;
+        tags: ['doctrine.repository_service']
+
+    App\DataFixtures\:
+            resource: '../src/DataFixtures'
+            autowire: true;
+            tags: ['doctrine.fixture.orm']
+
+    # Création d'un listener permettant de rediriger vers / quand l'user connecté
+    # n'a pas accès à l'interface admin
+    access.denied.route:
+        class: App\Security\AccessDeniedHandler
+        arguments: ["@router"]
+        public: true
+
+    # Création des services mailers et event subscribers
+    service.smart.mailer:
+        class: App\Services\Mailer\Mailer\SmartMailer
+        arguments: ["@mailer"]
+        public: true
+
+    contact.mailer.subscriber:
+        class: App\EventListener\MailerSubscriber
+        arguments: ["@service.smart.mailer","%mail_sender%"]
+        public: true
+        tags:
+            - { name: kernel.event_subscriber }
+
+    contact.recorder.subscriber:
+        class: App\EventListener\ContactRecorderSubscriber
+        arguments: ["@doctrine"]
+        public: true
+        tags:
+            - { name : kernel.event_subscriber }
+

@@ -23,7 +23,7 @@ class PostType extends AbstractType
             ->add('summary', TextType::class,array('label' => 'Résumé'), array('required' => true))
             ->add('content', TextareaType::class, array('label' => 'Post'),array('required' => false), array('attr' => array('class' => 'tinymce')))
             ->add('create', SubmitType::class,array('attr' => array('class' => 'btn btn-primary')))
-            ;
+        ;
 
 
     }

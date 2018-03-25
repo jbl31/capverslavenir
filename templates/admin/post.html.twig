@@ -24,13 +24,13 @@
                                 <td>{{ post.publishedAt | date('d-m-Y H:i:s') }}</td>
                                 <td class="text-right">
                                     <div class="item-actions">
-                                        <a href="{{ path('admin_news', {id:post.id}) }}" class="btn btn-sm btn-secondary">
+                                        <a href="{{ path('admin_post_show', {id:post.id}) }}" class="btn btn-sm btn-secondary">
                                             <i class="fas fa-eye" aria-hidden="true"></i> Voir
                                         </a>
-                                        <a href="#" class="btn btn-sm btn-primary">
+                                        <a href="{{ path('admin_post_edit', {id:post.id}) }}" class="btn btn-sm btn-primary">
                                             <i class="fas fa-edit" aria-hidden="true"></i> Editer
                                         </a>
-                                        <a href="#" class="btn btn-sm btn-danger">
+                                        <a href="{{ path('admin_post_delete', {id:post.id}) }}" class="btn btn-sm btn-danger">
                                             <i class="fas fa-trash-alt" aria-hidden="true"></i> Supprimer
                                         </a>
                                     </div>

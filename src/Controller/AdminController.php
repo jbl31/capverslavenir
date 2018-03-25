@@ -11,6 +11,7 @@ namespace App\Controller;
 use App\Entity\Post;
 use App\Form\PostType;
 use App\Utils\Slugger;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -81,5 +82,70 @@ class AdminController extends Controller
         }
 
         return $this->render('admin/create.html.twig', ['form' => $form->createView()]);
+    }
+
+    /**
+     * Permet d'éditer un post
+     *
+     * @Route("/{id}/edit", requirements={"id": "\d+"}, name="admin_post_edit")
+     * @Method({"GET", "POST"})
+     */
+    public function edit(Request $request, Post $post): Response
+    {
+        //$this->denyAccessUnlessGranted('edit', $post, 'Seul l\'auteur du post peut éditer');
+
+        $form = $this->createForm(PostType::class, $post);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $post->setSlug(Slugger::slugify($post->getTitle()));
+            $this->getDoctrine()->getManager()->flush();
+
+            $this->addFlash('success', 'Post_édité_avec_succès');
+
+            return $this->redirectToRoute('admin_news', ['id' => $post->getId()]);
+        }
+
+        return $this->render('admin/edit.html.twig', [
+            'post' => $post,
+            'form' => $form->createView(),
+        ]);
+    }
+
+        /**
+         * Efface un post
+         *
+         * @Route("/{id}/delete", name="admin_post_delete")
+         */
+        public function delete(Request $request, Post $post): Response
+    {
+
+        // supprime les tags liés à ce post (normalement fait automatiquement par doctrine
+        $post->getTags()->clear();
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($post);
+        $em->flush();
+
+        $this->addFlash('success', 'post supprimé avec sucès');
+
+        return $this->redirectToRoute('admin_news');
+    }
+
+    /**
+     * Affiche un post côté admin
+     *
+     * @Route("/admin/post/{id}", requirements={"id": "\d+"}, name="admin_post_show")
+     * @Method("GET")
+     */
+    public function show(Post $post): Response
+    {
+        // This security check can also be performed
+        // using an annotation: @Security("is_granted('show', post)")
+        // $this->denyAccessUnlessGranted('show', $post, 'Les posts ne peuvent être affichés que par leur auteur');
+
+        return $this->render('admin/post_show.html.twig', [
+            'post' => $post,
+        ]);
     }
 }
