@@ -37,6 +37,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Utilisateurs</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://mybrocante.fr">Gestion vide-grenier</a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav ml-md-auto d-md-flex">
                     <li class="nav-item">
@@ -54,6 +57,12 @@
             </div>
         </nav>
         {% block body %}
+
+            {% for message in app.flashes('success') %}
+                <div class="flash-notice">
+                    {{ message }}
+                </div>
+            {% endfor %}
 
         {% endblock %}
 
@@ -174,7 +183,7 @@
     {% endblock %}
 
     {% block javascripts %}
-        <script src="{{ asset('build/js/tinymce/tinymce.min.js') }}"></script>
+        {#<script src="{{ asset('build/js/tinymce/tinymce.min.js') }}"></script>
         <script>tinymce.init({
                 selector:'#tinymce',
                 max_height: 500,
@@ -182,7 +191,7 @@
                 min_height: 100,
                 min_width: 400,
                 //add_form_submit_trigger : true
-        });</script>
+        });</script>#}
         <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     {% endblock %}
 

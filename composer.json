@@ -6,6 +6,8 @@
         "ext-iconv": "*",
         "components/font-awesome": "^5.0",
         "friendsofphp/php-cs-fixer": "^2.10",
+        "hillrange/ckeditor": "^0.1.20",
+        "knplabs/knp-paginator-bundle": "^2.7",
         "sensio/framework-extra-bundle": "^5.1",
         "sensiolabs/security-checker": "^4.1",
         "symfony/asset": "^4.0",
@@ -28,7 +30,8 @@
         "symfony/validator": "^4.0",
         "symfony/web-link": "^4.0",
         "symfony/webpack-encore-pack": "*",
-        "symfony/yaml": "^4.0"
+        "symfony/yaml": "^4.0",
+        "voku/html2text": "^5.0"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.0",
@@ -66,7 +69,8 @@
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd",
-            "security-checker security:check": "script"
+            "security-checker security:check": "script",
+            "ckeditor:install --clear=drop": "symfony-cmd"
         },
         "post-install-cmd": [
             "@auto-scripts"

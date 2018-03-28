@@ -23,4 +23,12 @@ class DefaultController extends Controller
     {
         return $this->render('default/homepage.html.twig');
     }
+
+    /**
+     * @Route("/association", name="association")
+     */
+    public function pageAsso(Request $request): Response
+    {
+        return $this->render('default/association.html.twig');
+    }
 }

@@ -32,7 +32,7 @@ class Event
     /**
      * @ORM\Column(type="text")
      */
-    private $image;
+    private $filePath;
 
     /**
      * @ORM\Column(type="string")
@@ -111,21 +111,6 @@ class Event
         $this->content = $content;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    /**
-     * @param mixed $image
-     */
-    public function setImage($image): void
-    {
-        $this->image = $image;
-    }
 
     /**
      * @return mixed
@@ -207,5 +192,20 @@ class Event
         $this->category = $category;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getFilePath()
+    {
+        return $this->filePath;
+    }
+
+    /**
+     * @param mixed $filePath
+     */
+    public function setFilePath($filePath): void
+    {
+        $this->filePath = $filePath;
+    }
 
 }

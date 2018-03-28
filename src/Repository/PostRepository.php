@@ -15,7 +15,7 @@ class PostRepository extends ServiceEntityRepository
     }
 
 
-    public function findBySomething($value)
+    /*public function findBySomething($value)
     {
         return $this->createQueryBuilder('p')
             ->where('p.post = :value')->setParameter('value', $value)
@@ -24,7 +24,7 @@ class PostRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult()
         ;
-    }
+    }*/
 
 
     /*public function getPosts($params)
@@ -40,17 +40,17 @@ class PostRepository extends ServiceEntityRepository
         return $pag;  // je renvoie la page
     }*/
 
-    public function getPosts($params)
+    /*public function getPosts($params)
     {
         // je lancer le querybuilder pour récupérer les posts
         $qb = $this->createQueryBuilder('post');
         $qb
             ->select('post') // Je sélectionne les posts
-            ->setFirstResult($params['first']) // Ensemble de pagination créé des objest post entre first et limite
+            ->setFirstResult($params['first']) // Ensemble de pagination créé des objets post entre first et limite
             ->setMaxResults($params['limit']);
         $pag = new Paginator($qb);
         return $pag;
-    }
+    }*/
 
 }
 

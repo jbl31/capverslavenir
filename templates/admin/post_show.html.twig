@@ -22,7 +22,7 @@
                     <hr>
                     <div>{{ post.summary }}</div>
                     <br>
-                    <div>{{ post.content }}</div>
+                    <div>{{ post.content | raw}}</div>
                     <a class="btn btn-warning float-left" role="button" href="{{ path('admin_post_show', {'id' : post.id-1}) }}">Article précédent</a>
                     <a class="btn btn-info float-right" role="button" href="{{ path('admin_post_show', {'id' : post.id+1}) }}">Article suivant</a>
                 </div>

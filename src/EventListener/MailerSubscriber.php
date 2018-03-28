@@ -10,12 +10,12 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 class MailerSubscriber implements EventSubscriberInterface
 {
     private $mailer;
-    private $sender;
+    private $destinataire;
 
-    public function __construct(MailerInterface $mailer, string $sender)
+    public function __construct(MailerInterface $mailer, string $destinataire)
     {
         $this->mailer = $mailer;
-        $this->sender = $sender;
+        $this->destinataire = $destinataire;
     }
 
     public static function getSubscribedEvents()
@@ -29,8 +29,8 @@ class MailerSubscriber implements EventSubscriberInterface
 
         $this
             ->mailer
-            ->setSender($this->sender)
-            ->setRecipient($contact->getEmail())
+            ->setSender($contact->getEmail())
+            ->setRecipient($this->destinataire)
             ->setMessage($contact->getMessage())
             ->setObject("Demande de contact")
             ->send();

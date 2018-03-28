@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Post;
+use Hillrange\CKEditor\Form\CKEditorType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -21,8 +22,9 @@ class PostType extends AbstractType
             ->add('publishedAt', DateType::class)
             //->add('publishedAt', DateType::class, array('required' => true))  Seulement utile pour les Event->selectionner la date
             ->add('summary', TextType::class,array('label' => 'Résumé'), array('required' => true))
-            ->add('content', TextareaType::class, array('label' => 'Post'),array('required' => false), array('attr' => array('class' => 'tinymce')))
-            ->add('create', SubmitType::class,array('attr' => array('class' => 'btn btn-primary')))
+            ->add('content', CKEditorType::class, array('label' => ''),array('required' => false))
+            //->add('content', TextareaType::class, array('label' => 'Post'),array('required' => false), array('attr' => array('class' => 'tinymce')))
+            ->add('submit', SubmitType::class,array('attr' => array('class' => 'btn btn-primary')))
         ;
 
 

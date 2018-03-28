@@ -55,11 +55,12 @@ class PostController extends Controller
             );
     }
 
-    /**
+    /*/**
      * @Route("/news/{page}", name="page_news", requirements={"page": "\d+"})
      * @param $page
      * @return \Symfony\Component\HttpFoundation\Response
      */
+    /*
     public function index($page = 1)
     {
         if ($page < 1) {
@@ -78,6 +79,37 @@ class PostController extends Controller
             'posts' => $posts,  // affecte la valeur de $posts à 'posts' pour les utiliser dans twig
             'nbPages' => $nbPages,
             'page' => $page,
+        ]);
+    }*/
+
+    /**
+     * @Route("/news", name="news_list")
+     */
+    public function listAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager(); // récupération de l'objet Doctrine
+        $posts = $em->getRepository(Post::class)
+            ->findAll(); // récupération de tous les posts
+
+        /**
+         * @var $paginator \Knp\Component\Pager\Paginator
+         */
+        // création de la pagination
+        $paginator = $this->get('knp_paginator');
+
+        // astuce pour trouver le chemin du paginator et avoir les propositions ensuite
+        dump(get_class($paginator));
+        // indique que je veux créer des pages de "posts" de 1 à 10 posts max
+        $result = $paginator->paginate(
+            $posts,
+            $request->query->getInt('page',1 ), // fixation du nb de posts par page
+            $request->query->getInt('limit', 5)
+        );
+
+
+        return $this->render('news/news.html.twig', [
+            'posts' => $result
+
         ]);
     }
 }

@@ -78,8 +78,9 @@ class Post
 
     /**
      * @ORM\Column(type="text")
+     *
      */
-    private $image;
+    private $filePath;
 
     /**
      * @var Tag[]|ArrayCollection
@@ -268,22 +269,6 @@ class Post
     /**
      * @return mixed
      */
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    /**
-     * @param mixed $image
-     */
-    public function setImage($image): void
-    {
-        $this->image = $image;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getCategory()
     {
         return $this->category;
@@ -297,7 +282,20 @@ class Post
         $this->category = $category;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getFilePath()
+    {
+        return $this->filePath;
+    }
 
-
+    /**
+     * @param mixed $filePath
+     */
+    public function setFilePath($filePath): void
+    {
+        $this->filePath = $filePath;
+    }
 
 }

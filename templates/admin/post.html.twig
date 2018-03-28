@@ -10,9 +10,9 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
+                                <th scope="col">{{ knp_pagination_sortable(posts,'id', 'post.id') }}</th>
                                 <th scope="col">Titre de l'article</th>
-                                <th scope="col">Date de publication</th>
+                                <th scope="col">{{ knp_pagination_sortable(posts,'publishedAt', 'post.publishedAt') }}</th>
                                 <th scope="col">Actions</th>
                             </tr>
                         </thead>
@@ -39,6 +39,10 @@
                         {% endfor %}
                         </tbody>
                     </table>
+                    <div class="navigation justify-content-center">
+                        {{ knp_pagination_render(posts, '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig') }}
+
+                    </div>
                 </div>
             </div>
         </div>

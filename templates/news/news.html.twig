@@ -23,7 +23,12 @@
                 </div>
             </div>
             </div>
+
         {% endfor %}
+        <div class="navigation justify-content-center">
+            {{ knp_pagination_render(posts, '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig') }}
+
+        </div>
         <div>Total : {{ posts|length }}</div>
     {% endblock %}
 

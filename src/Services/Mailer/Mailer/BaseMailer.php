@@ -6,7 +6,7 @@ use App\Services\Mailer\MailerInterface;
 
 class BaseMailer implements MailerInterface
 {
-    private $sender, $recipient, $object, $message;
+    private $sender, $recipient, $name, $phone, $object, $message;
 
     public function setSender(string $email): MailerInterface
     {
@@ -14,6 +14,43 @@ class BaseMailer implements MailerInterface
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName(string $name): MailerInterface
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * @param mixed $phone
+     */
+    public function setPhone(string $phone) : MailerInterface
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
 
     public function setRecipient(string $email): MailerInterface
     {

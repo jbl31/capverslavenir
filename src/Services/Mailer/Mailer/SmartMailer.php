@@ -9,7 +9,7 @@ use Swift_Message;
 
 class SmartMailer implements MailerInterface
 {
-    private $sender, $recipient, $object, $message;
+    private $sender, $recipient, $name, $phone, $object, $message;
     private $mailer;
 
     public function __construct(Swift_Mailer $mailer)

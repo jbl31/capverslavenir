@@ -20,23 +20,23 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminController extends Controller
 {
-    /**
-     * @Route("/admin/news", name="admin_news")
-     *
-     */
-    public function indexAction(Request $request): Response
-    {
-        $posts = $this
-            ->getDoctrine()
-            ->getRepository(Post::class)
-            ->findAll();
-
-        return $this->render('admin/post.html.twig',
-            [
-            'posts' => $posts
-            ]
-        );
-    }
+//    /**
+//     * @Route("/admin/news", name="admin_news")
+//     * @Security("has_role('ROLE_ADMIN')")
+//     */
+//    public function indexAction(Request $request): Response
+//    {
+//        $posts = $this
+//            ->getDoctrine()
+//            ->getRepository(Post::class)
+//            ->findAll();
+//
+//        return $this->render('admin/post.html.twig',
+//            [
+//            'posts' => $posts
+//            ]
+//        );
+//    }
 
     /**
      * @Route("/admin", name="admin_index")
@@ -68,7 +68,7 @@ class AdminController extends Controller
             $em = $this->getDoctrine()->getManager();
             $post->setSlug(Slugger::slugify($post->getTitle()));
             $post->setPublishedAt(new \DateTime('now'));
-            $post->setImage('image');
+            $post->setFilepath('image');
             $post->setCategory('Vie de l\'association');
             $em->persist($post);
             $em->flush();
@@ -89,6 +89,7 @@ class AdminController extends Controller
      *
      * @Route("/{id}/edit", requirements={"id": "\d+"}, name="admin_post_edit")
      * @Method({"GET", "POST"})
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function edit(Request $request, Post $post): Response
     {
@@ -116,6 +117,7 @@ class AdminController extends Controller
          * Efface un post
          *
          * @Route("/{id}/delete", name="admin_post_delete")
+         * @Security("has_role('ROLE_ADMIN')")
          */
         public function delete(Request $request, Post $post): Response
     {
@@ -137,6 +139,7 @@ class AdminController extends Controller
      *
      * @Route("/admin/post/{id}", requirements={"id": "\d+"}, name="admin_post_show")
      * @Method("GET")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function show(Post $post): Response
     {
@@ -146,6 +149,40 @@ class AdminController extends Controller
 
         return $this->render('admin/post_show.html.twig', [
             'post' => $post,
+        ]);
+    }
+
+    /**
+     * @Route("/admin/news", name="admin_news")
+     * @Security("has_role('ROLE_ADMIN')")
+     */
+    public function adminListAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager(); // récupération de l'objet Doctrine
+        $dql = "SELECT post FROM App:Post post";
+        $query = $em->createQuery($dql);
+//        $posts = $em->getRepository(Post::class)
+//            ->findAll(); // récupération de tous les posts
+
+        /**
+         * @var $paginator \Knp\Component\Pager\Paginator
+         */
+        // création de la pagination
+        $paginator = $this->get('knp_paginator');
+
+        // astuce pour trouver le chemin du paginator et avoir les propositions ensuite
+        dump(get_class($paginator));
+        // indique que je veux créer des pages de "posts" de 1 à 10 posts max
+        $result = $paginator->paginate(
+            $query,
+            $request->query->getInt('page',1 ),
+            $request->query->getInt('limit', 10)
+        );
+
+
+        return $this->render('admin/post.html.twig', [
+            'posts' => $result
+
         ]);
     }
 }
