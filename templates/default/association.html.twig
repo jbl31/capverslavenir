@@ -1,11 +1,38 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
+{% block title %}L'association{% endblock %}
+{% block content %}
 
-    <article class="container">
+<div class="content mt-3 ">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ path('homepage') }}">Accueil</a></li>
+        <li class="breadcrumb-item active" aria-current="page">L'association</li>
+    </ol>
+    <article class="container association text-center">
         <header class="jumbotron text-center">
-            <h2>A propos de l'Association</h2>
+            <h1>A propos de l'Association</h1>
+            <h2>Cap vers l'avenir</h2>
+            <h3>Association loi 1901</h3>
+            <p>SIREN:0000000000</p>
         </header>
+        <p>L'association CAP VERS L'AVENIR a vu le jour en 1995  avec l'envie de s'investir dans la vie locale du village de Lamagistère et d'apporter aide et soutien à des personnes en difficultés ou victimes de solitude.</p>
+        <h3> Objectifs de l'association</h3>
+        <p> Permettre l'insertion des personnes défavorisées (handicapés, cas sociaux, personnes atteintes de solitude et autres) de la communauté des communes à l'aide de
+        manifestations associatives, culturelles, sportives et touristiques.
+        </p>
+        <p> L'association propose des évènements et activités comme:
+            <ul>
+            <li>Vides-greniers</li>
+            <li>Lotos</li>
+            <li>Descente de la garonne</li>
+            <li>Activités sportives</li>
+            <li>Fêtes du village</li>
+        </ul>
+        </p>
+        <hr>
+
+
+
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia doloremque minima ab? Id provident aperiam atque excepturi repudiandae quis eveniet expedita dolores esse doloremque quasi sed magnam commodi sit modi!</p>
         <p>Molestiae incidunt asperiores rerum consequatur laboriosam eius minima suscipit ipsam vel magni! Ratione nisi neque cum eaque accusantium voluptatem distinctio quidem minus excepturi illo ipsam hic laudantium quas. Id laudantium.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos ad assumenda molestias tempora at natus sint fugiat cum ullam esse magni quidem facilis quis dolore tenetur inventore provident maxime consequuntur.</p>
@@ -45,4 +72,5 @@
         <h5>Laast</h5>
     </article>
 
+</div>
 {% endblock %}

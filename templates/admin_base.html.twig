@@ -9,10 +9,6 @@
         {#{{ parent() }}#}
         <link rel="stylesheet" href="{{ asset('build/css/app.css') }}">
     {% endblock %}
-    {#{% block javascripts %}
-        <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-        <script>tinymce.init({ selector:'textarea' });</script>
-        {% endblock %}#}
     <title>Administration</title>
 </head>
 <body>
@@ -39,6 +35,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="http://mybrocante.fr">Gestion vide-grenier</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Galerie</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-md-auto d-md-flex">

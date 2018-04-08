@@ -59,18 +59,28 @@ class AdminController extends Controller
     {
         // Formulaire création de post
         $post = new Post();
+        //récupère l'autheur du post
         $post->setAuthor($this->getUser());
+        // génère le formulaire
         $form = $this->createForm(PostType::class, $post);
+        // récupère les données envoyées par le formulaire
         $form->handleRequest($request);
 
+        // vérifie si le formulaire est envoyé et si il est valide
         if ($form->isSubmitted() && $form->isValid()) {
             $post = $form->getData();
+            // Appelle le manager de Doctrine
             $em = $this->getDoctrine()->getManager();
+            // créé un "slug" du titre
             $post->setSlug(Slugger::slugify($post->getTitle()));
+            // insère la date de création du post
             $post->setPublishedAt(new \DateTime('now'));
+
             $post->setFilepath('image');
             $post->setCategory('Vie de l\'association');
+            // demande à doctrine de sauvegarder les informations extraites du formulaires
             $em->persist($post);
+            // valide l'envoi des données pour sauvegarde définitive en base
             $em->flush();
 
             $this->addFlash(

@@ -14,8 +14,8 @@
 
 {% endblock %}#}
 
-{% block body %}
-<body class="my-login-page">
+{% block content %}
+<div class="my-login-page">
 <section class="h-100">
     <div class="container h-100">
         <div class="row justify-content-md-center h-100">
@@ -73,9 +73,6 @@
         </div>
     </div>
 </section>
-
-<script src="js/jquery.min.js"></script>
-<script src="bootstrap/js/bootstrap.min.js"></script>
-<script src="{{ asset('build/js/my-login.js') }}"></script>
-</body>
+<script src="{{ asset('build/js/login.js') }}"></script>
+</div>
 {% endblock %}

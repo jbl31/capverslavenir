@@ -4,4 +4,6 @@ import 'bootstrap';// import the bootstrap js
 import './common.js';
 import './base.js';
 import 'glyphicons';
+import './login';
+
 //import 'font-awesome/css/font-awesome.css';

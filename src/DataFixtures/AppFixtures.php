@@ -95,7 +95,6 @@ class AppFixtures extends Fixture
             $post->setSlug($slug);
             $post->setSummary($summary);
             $post->setContent($content);
-            $post->setImage('image');
             $post->setPublishedAt($publishedAt);
             $post->setAuthor($author);
             $post->setCategory('Vie de l\'Association');

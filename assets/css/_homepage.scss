@@ -163,3 +163,26 @@ a#jb:hover {
       color: dimgrey;
     }
 }*/
+
+/* ==========================================================
+        Page/Association
+   ========================================================== */
+
+.association {
+  text-align: justify-all;
+  ul {
+    padding:0;
+    margin:0;
+    display: inline-block;
+    text-align:left;
+    //width: 90px;
+  }
+  ul li {
+    padding-left:8px;
+    //list-style:none;
+    margin-bottom:6px;
+    text-align: left;
+    text-indent: -12px ;
+  }
+}
+
